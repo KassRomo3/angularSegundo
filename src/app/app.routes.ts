@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Ejemplo1Component } from './formulario/ejemplo1/ejemplo1.component';
 import { ZodiacoComponent } from './formulario/zodiaco/zodiaco.component';
-/* import { EmpleadosComponent } from './formulario/empleados/empleados.component'; */
+import { EmpleadosComponent } from './formulario/empleados/empleados.component';
 
 export const routes: Routes = [
     {
@@ -19,9 +19,9 @@ export const routes: Routes = [
     {
         path: 'zodiaco',
         component: ZodiacoComponent
-    }/* ,
+    },
     {
         path: 'empleados',
         component: EmpleadosComponent
-    } */
+    }
 ];

@@ -1,0 +1,64 @@
+<p>empleados works!</p>
+  <div>
+    <h3>Registro de Empleados</h3>
+    <form (ngSubmit)="agregarEmpleado()">
+      <input type="text" [(ngModel)]="nuevoEmpleado.matricula" placeholder="Matrícula" name="matricula" required />
+      <input type="text" [(ngModel)]="nuevoEmpleado.nombre" placeholder="Nombre" name="nombre" required />
+      <input type="email" [(ngModel)]="nuevoEmpleado.correo" placeholder="Correo" name="correo" required />
+      <input type="number" [(ngModel)]="nuevoEmpleado.edad" placeholder="Edad" name="edad" required />
+      <input type="number" [(ngModel)]="nuevoEmpleado.horasTrabajadas" placeholder="Horas Trabajadas" name="horas" required />
+      <button type="submit">Registrar</button>
+    </form>
+    
+    
+    <button (click)="imprimirTabla()">Imprimir Tabla</button>
+<table *ngIf="mostrarTabla">
+  <thead>
+    <tr>
+   <!--  <table>
+      <thead>
+        <tr> -->
+          <th>Matrícula</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Edad</th>
+
+          <th>Horas Trabajadas</th>
+          <th>Horas x Pagar</th>
+          <th>Horas Extras</th>
+          <th>Subtotal</th>
+          <th>Acciones</th>
+
+<!--           <th>Horas Trabajadas</th>
+          <th>Horas Extras</th> -->
+      <!--     <th>Pago</th>
+          <th>Acciones</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleados">
+          <td>{{ empleado.matricula }}</td>
+          <td>{{ empleado.nombre }}</td>
+          <td>{{ empleado.correo }}</td>
+          <td>{{ empleado.edad }}</td>
+
+          <td>{{ empleado.horasTrabajadas }}</td>
+          <td>{{ empleado.horasXPagar }}</td>
+          <td>{{ empleado.horasExtras }}</td>
+          <td>{{ empleado.subTotal }}</td>
+        <!--   
+          <td>{{ empleado.horasTrabajadas }}</td>
+  --    <td>{{ empleado.horasTrabajadas > 40 ? empleado.horasTrabajadas - 40 : 0 }}</td> --
+
+          <td>{{ (empleado.horasTrabajadas ?? 0) > 40 ? (empleado.horasTrabajadas ?? 0) - 40 : 0 }}</td>
+
+          <td>{{ calcularPago(empleado) }}</td> -->
+          <td>
+            <button (click)="modificarEmpleado(empleado.matricula)">Modificar</button>
+            <button (click)="eliminarEmpleado(empleado.matricula)">Eliminae</button>
+        </tbody>
+
+        <div *ngIf="mostrarTabla">
+          <h3>Total a Pagar: {{ totalAPagar }}</h3>
+        </div>
+<!--   </div> -->
